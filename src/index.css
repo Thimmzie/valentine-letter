@@ -92,7 +92,7 @@ button:focus-visible {
 .progress{
   background-color: #505050;
   width: 100vw;
-  height: 10vh;
+  height: 8vh;
   position: relative;
    overflow: hidden;
 }
@@ -121,7 +121,12 @@ button:focus-visible {
 }
 .lovetext {
   overflow: hidden;
+  line-height: 2rem;
+  opacity: 0;
 }
 .lovetext-line {
   display: block;
+}
+.lovehead{
+  opacity: 0;
 }

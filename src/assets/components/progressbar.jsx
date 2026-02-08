@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-const ProgressBar = ({ value = 0 }) => {
+const ProgressBar = ({ value = 0, onComplete }) => {
   const [percent, setPercent] = useState(0);
   const [hide, setHide] = useState(false);
 
@@ -10,6 +10,7 @@ const ProgressBar = ({ value = 0 }) => {
     if (value >= 100 && !hide) {
       setTimeout(() => {
         setHide(true);
+        if (onComplete) onComplete();
       }, 1500);
     }
   }, [value]);

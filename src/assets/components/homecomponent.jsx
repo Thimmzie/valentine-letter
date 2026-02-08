@@ -1,15 +1,17 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import Sitebg from '../../../public/home-bg.png';
 import ProgressBar from './progressbar';
 import gsap from 'gsap';
 
 const homecomponent = () => {
   const [value, setValue] = useState(0);
+  const timelineRef = useRef(null);
 
   useEffect(() => {
-    setInterval(() => {
-      setValue((val) => val + 1);
+    const interval = setInterval(() => {
+      setValue((val) => Math.min(val + 1, 100));
     }, 200);
+    return () => clearInterval(interval);
   }, []);
 
   useEffect(() => {
@@ -41,40 +43,88 @@ const homecomponent = () => {
     });
   }, []);
 
-  useEffect(() => {
-    gsap.fromTo(
-      '.lovehead',
-      {
-        opacity: 0,
-        yPercent: 80,
-      },
-      {
-        opacity: 1,
-        yPercent: 0,
-        duration: 0.8,
-        delay: 12.5,
-        ease: 'back.out',
-      },
-    );
-  }, []);
+  const startAnimations = () => {
+    const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
 
-  useEffect(() => {
-    gsap.fromTo(
-      '.lovetext',
-      {
-        opacity: 0,
-        yPercent: 50,
-      },
-      {
-        opacity: 1,
-        yPercent: 0,
-        duration: 1.5,
-        delay: 13,
-        stagger: 0.2,
-        ease: 'power3.out',
-      },
+    tl.fromTo(
+      '.lovehead',
+      { opacity: 0, yPercent: 80 },
+      { opacity: 1, yPercent: 0, duration: 0.8 },
     );
-  }, []);
+
+    tl.to({}, { duration: 0.3 });
+
+    tl.fromTo(
+      '.lovetext',
+      { opacity: 0, yPercent: 50 },
+      { opacity: 1, yPercent: 0, stagger: 0.2, duration: 1.5 },
+    );
+  };
+
+  // const startAnimations = () => {
+  //   gsap.fromTo(
+  //     '.lovehead',
+  //     { opacity: 0, yPercent: 80 },
+  //     { opacity: 1, yPercent: 0, duration: 0.8, ease: 'back.out' },
+  //   );
+  // };
+
+  // const startAnimations = () => {
+  //   useEffect(() => {
+  //     gsap.fromTo(
+  //       '.lovehead',
+  //       {
+  //         opacity: 0,
+  //         yPercent: 80,
+  //       },
+  //       {
+  //         opacity: 1,
+  //         yPercent: 0,
+  //         duration: 0.8,
+  //         delay: 12.5,
+  //         ease: 'back.out',
+  //       },
+  //     );
+  //   }, []);
+  // };
+
+  // useEffect(() => {
+  //   gsap.fromTo(
+  //     '.lovetext',
+  //     {
+  //       opacity: 0,
+  //       yPercent: 50,
+  //     },
+  //     {
+  //       opacity: 0,
+  //       yPercent: 0,
+  //       duration: 1.5,
+  //       delay: 13,
+  //       stagger: 0.2,
+  //       ease: 'power3.out',
+  //     },
+  //   );
+  // }, []);
+
+  // const startAnimations = () => {
+  //   const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+
+  //   // Animate heading
+  //   tl.fromTo(
+  //     '.lovehead',
+  //     { opacity: 0, yPercent: 80 },
+  //     { opacity: 1, yPercent: 0, duration: 0.8 },
+  //   );
+
+  //   // Animate text in sequence
+  //   tl.fromTo(
+  //     '.lovetext',
+  //     { opacity: 0, yPercent: 50 },
+  //     { opacity: 1, yPercent: 0, stagger: 0.2, duration: 1.5 },
+  //   );
+
+  //   timelineRef.current = tl;
+  // };
 
   return (
     <div
@@ -83,7 +133,7 @@ const homecomponent = () => {
         backgroundImage: `url(${Sitebg})`,
       }}
     >
-      <ProgressBar value={value} />
+      <ProgressBar value={value} onComplete={startAnimations} />
       <div className="mt-5 relative overflow-hidden h-10">
         <h4 className="nuggets">Beauty is in the eyes of the beholder</h4>
         <h4 className="nuggets">But with you, it is the standard</h4>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { useEffect, useState, useRef } from 'react';
+import { useEffect } from 'react';
 import gsap from 'gsap';
 import { useNavigate } from 'react-router-dom';
 import Sitebg from '../../../public/home-bg.png';
@@ -30,6 +30,8 @@ const intersection = () => {
     );
   }, []);
 
+  const navigate = useNavigate();
+
   return (
     <div
       className="overall-container"
@@ -37,7 +39,7 @@ const intersection = () => {
         backgroundImage: `url(${Sitebg})`,
       }}
     >
-      <div className="px-10 text-[#f7f7f7] pt-9 text-center lovetext ">
+      <div className="px-10 text-[#f7f7f7] pt-15 text-center lovetext ">
         <p className="lovetext">Your love gladdens my heart;</p>
         <p className="lovetext">it soothes me, and wraps me in comfort.</p>
         <p className="lovetext">
@@ -52,11 +54,15 @@ const intersection = () => {
           I wouldn’t walk this path of love any differently
         </p>
         <p className="lovetext">I’d choose you every time.</p>
-        <p className="lovetext">Oh my Shaylaaaa, my love for you,</p>
-        <p className="lovetext">is what Amala thinks it has over you.</p>
+        <p className="lovetext">Oh my Shaylaaaa, our love is the,</p>
+        <p className="lovetext">
+          relationship Amala and catfish head looks forward to 😇🥰.
+        </p>
       </div>
       <div className="flex flex-col items-center mt-6">
-        <button className="btn">Let's go 👉</button>
+        <button className="btn" onClick={() => navigate('/sequel')}>
+          Let's go 👉
+        </button>
       </div>
     </div>
   );

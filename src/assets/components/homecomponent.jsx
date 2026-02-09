@@ -78,7 +78,9 @@ const homecomponent = () => {
     >
       <ProgressBar value={value} onComplete={startAnimations} />
       <div className="mt-5 relative overflow-hidden h-10">
-        <h4 className="nuggets">Beauty is in the eyes of the beholder</h4>
+        <h4 className="nuggets">
+          Beauty, they say is in the eyes of the beholder
+        </h4>
         <h4 className="nuggets">But with you, it is the standard</h4>
         <h4 className="nuggets">I must give you all the available credits</h4>
         <h4 className="nuggets">Cus you make being divine look easy</h4>

@@ -139,3 +139,51 @@ button:focus-visible {
   opacity: 0;
   font-size: 1.1rem;
 }
+.intro{
+  position: absolute;
+  opacity: 0;
+  white-space: nowrap;
+  color: #ffffff;
+}
+.main-content{
+  opacity: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  inset: 0;
+}
+.intro-content{
+  position: relative;
+  height: 2.5rem;       
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  min-height: 100vh;
+}
+.overall-container-two{
+  min-height: 100vh;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+}
+.no-btn{
+  background-color: #c2185b;
+   color: #ffffff;
+  border: none;
+  border-radius: 1.5rem;
+  padding: 0.5rem 2rem;
+  font-size: 0.8rem;
+}
+.yes-btn{
+  background-color: #ff0033;
+   color: #ffffff;
+  border: none;
+  border-radius: 1.5rem;
+  padding: 0.5rem 2rem;
+  font-size: 0.8rem;
+}

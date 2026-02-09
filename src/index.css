@@ -130,3 +130,12 @@ button:focus-visible {
 .lovehead{
   opacity: 0;
 }
+.btn{
+  background-color: #e81224;
+  color: #ffffff;
+  border: none;
+  border-radius: 1.2rem;
+  padding: 0.3rem 2rem;
+  opacity: 0;
+  
+}

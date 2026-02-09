@@ -1,7 +1,8 @@
-import React, { useEffect, useState, useRef } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import Sitebg from '../../../public/home-bg.png';
 import ProgressBar from './progressbar';
 import gsap from 'gsap';
+import { useNavigate } from 'react-router-dom';
 
 const homecomponent = () => {
   const [value, setValue] = useState(0);
@@ -11,7 +12,7 @@ const homecomponent = () => {
     const interval = setInterval(() => {
       setValue((val) => Math.min(val + 1, 100));
     }, 200);
-    return () => clearInterval(interval);
+    // return () => clearInterval(interval);
   }, []);
 
   useEffect(() => {
@@ -49,7 +50,7 @@ const homecomponent = () => {
     tl.fromTo(
       '.lovehead',
       { opacity: 0, yPercent: 80 },
-      { opacity: 1, yPercent: 0, duration: 0.8 },
+      { opacity: 1, yPercent: 0, delay: 1, duration: 0.8 },
     );
 
     tl.to({}, { duration: 0.3 });
@@ -57,74 +58,16 @@ const homecomponent = () => {
     tl.fromTo(
       '.lovetext',
       { opacity: 0, yPercent: 50 },
-      { opacity: 1, yPercent: 0, stagger: 0.2, duration: 1.5 },
+      { opacity: 1, yPercent: 0, delay: -1, stagger: 0.2, duration: 1.5 },
+    );
+    tl.fromTo(
+      '.btn',
+      { opacity: 0, yPercent: 80 },
+      { opacity: 1, yPercent: 0 },
     );
   };
 
-  // const startAnimations = () => {
-  //   gsap.fromTo(
-  //     '.lovehead',
-  //     { opacity: 0, yPercent: 80 },
-  //     { opacity: 1, yPercent: 0, duration: 0.8, ease: 'back.out' },
-  //   );
-  // };
-
-  // const startAnimations = () => {
-  //   useEffect(() => {
-  //     gsap.fromTo(
-  //       '.lovehead',
-  //       {
-  //         opacity: 0,
-  //         yPercent: 80,
-  //       },
-  //       {
-  //         opacity: 1,
-  //         yPercent: 0,
-  //         duration: 0.8,
-  //         delay: 12.5,
-  //         ease: 'back.out',
-  //       },
-  //     );
-  //   }, []);
-  // };
-
-  // useEffect(() => {
-  //   gsap.fromTo(
-  //     '.lovetext',
-  //     {
-  //       opacity: 0,
-  //       yPercent: 50,
-  //     },
-  //     {
-  //       opacity: 0,
-  //       yPercent: 0,
-  //       duration: 1.5,
-  //       delay: 13,
-  //       stagger: 0.2,
-  //       ease: 'power3.out',
-  //     },
-  //   );
-  // }, []);
-
-  // const startAnimations = () => {
-  //   const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
-
-  //   // Animate heading
-  //   tl.fromTo(
-  //     '.lovehead',
-  //     { opacity: 0, yPercent: 80 },
-  //     { opacity: 1, yPercent: 0, duration: 0.8 },
-  //   );
-
-  //   // Animate text in sequence
-  //   tl.fromTo(
-  //     '.lovetext',
-  //     { opacity: 0, yPercent: 50 },
-  //     { opacity: 1, yPercent: 0, stagger: 0.2, duration: 1.5 },
-  //   );
-
-  //   timelineRef.current = tl;
-  // };
+  const navigate = useNavigate();
 
   return (
     <div
@@ -158,7 +101,7 @@ const homecomponent = () => {
             I keep a list 📝 in my head of all the little
           </p>
           <p className="lovetext">things you do to me. It’s the longest and</p>
-          <p className="lovetext"> happiest list I own.🎁✨</p> <br /> <br />
+          <p className="lovetext"> happiest list I own.🎁✨</p>
           {/* Your love gladdens my heart; it soothes me, and wraps me in comfort.
           It surpasses the cool relief of water from a gourd. The Yoruba will
           come and say a snail never abandons its shell. Our story has become
@@ -167,6 +110,11 @@ const homecomponent = () => {
           love any differently—I’d choose you every time. Oh my Shaylaaaa, my
           love for you is what Amala thinks it has over you. */}
         </div>
+      </div>
+      <div className="flex flex-col items-center mt-6">
+        <button className="btn" onClick={() => navigate('/intersection')}>
+          Click me joor 😎
+        </button>
       </div>
     </div>
   );

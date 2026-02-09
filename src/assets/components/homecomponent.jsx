@@ -11,7 +11,7 @@ const homecomponent = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setValue((val) => Math.min(val + 1, 100));
-    }, 200);
+    }, 110);
     // return () => clearInterval(interval);
   }, []);
 

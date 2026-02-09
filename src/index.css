@@ -131,11 +131,11 @@ button:focus-visible {
   opacity: 0;
 }
 .btn{
-  background-color: #e81224;
+  background-color: #c2185b;
   color: #ffffff;
   border: none;
   border-radius: 1.2rem;
-  padding: 0.3rem 2rem;
+  padding: 0.5rem 2rem;
   opacity: 0;
-  
+  font-size: 1.1rem;
 }

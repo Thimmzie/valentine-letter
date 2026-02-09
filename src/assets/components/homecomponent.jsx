@@ -102,13 +102,6 @@ const homecomponent = () => {
           </p>
           <p className="lovetext">things you do to me. It’s the longest and</p>
           <p className="lovetext"> happiest list I own.🎁✨</p>
-          {/* Your love gladdens my heart; it soothes me, and wraps me in comfort.
-          It surpasses the cool relief of water from a gourd. The Yoruba will
-          come and say a snail never abandons its shell. Our story has become
-          that of the snail and its shell: wherever I go, let my shell follow.
-          If I were to come into this world again, I wouldn’t walk this path of
-          love any differently—I’d choose you every time. Oh my Shaylaaaa, my
-          love for you is what Amala thinks it has over you. */}
         </div>
       </div>
       <div className="flex flex-col items-center mt-6">

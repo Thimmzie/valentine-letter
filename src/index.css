@@ -144,6 +144,8 @@ button:focus-visible {
   opacity: 0;
   white-space: nowrap;
   color: #ffffff;
+  font-size: 1.1rem;
+  font-weight: bold;
 }
 .main-content{
   opacity: 0;
@@ -177,7 +179,7 @@ button:focus-visible {
   border: none;
   border-radius: 1.5rem;
   padding: 0.5rem 2rem;
-  font-size: 0.8rem;
+  font-size: 1rem;
 }
 .yes-btn{
   background-color: #ff0033;
@@ -185,5 +187,5 @@ button:focus-visible {
   border: none;
   border-radius: 1.5rem;
   padding: 0.5rem 2rem;
-  font-size: 0.8rem;
+  font-size: 1rem;
 }

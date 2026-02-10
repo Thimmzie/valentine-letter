@@ -1,9 +1,32 @@
 import React from 'react';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import gsap from 'gsap';
 import Sitebg from '../../../public/home-bg.png';
+import Confetti from 'react-confetti';
 
 const sequel = () => {
+  const [showSuccess, setShowSuccess] = useState(false);
+
+  const handleClick = () => {
+    const tl = gsap.timeline();
+
+    tl.to('.main-content', {
+      opacity: 0,
+      yPercent: -30,
+      duration: 0.8,
+      ease: 'power3.in',
+    })
+      .set('.main-content', { display: 'none' })
+      .set('.sucess-container', { pointerEvents: 'auto' })
+      .to('.sucess-container', {
+        opacity: 1,
+        scale: 1,
+        duration: 1,
+        ease: 'back.out(1.7)',
+        onStart: () => setShowSuccess(true),
+      });
+  };
+
   useEffect(() => {
     const introLines = gsap.utils.toArray('.intro');
 
@@ -33,7 +56,6 @@ const sequel = () => {
         });
     });
 
-    // small pause after last intro
     tl.to({}, { duration: 0.6 });
 
     tl.fromTo(
@@ -54,6 +76,23 @@ const sequel = () => {
         backgroundImage: `url(${Sitebg})`,
       }}
     >
+      {showSuccess && (
+        <>
+          <Confetti
+            numberOfPieces={200}
+            gravity={0.25}
+            recycle={true}
+            origin={{ x: 0.5, y: 0 }}
+          />
+
+          <Confetti
+            numberOfPieces={200}
+            gravity={-0.25}
+            recycle={true}
+            origin={{ x: 0.5, y: 1 }}
+          />
+        </>
+      )}
       <div className="intro-content">
         <p className="intro">So I have a question ⌛</p>
         <p className="intro">Hmmmmmmmmmmmmmmmm 👀</p>
@@ -66,9 +105,20 @@ const sequel = () => {
           Will you be my valentine? 💖👩‍❤️‍👩💖{' '}
         </h1>
         <div className="flex gap-4 mt-4 flex-col">
-          <button className="yes-btn">Yes, Olori oko mi 👑💝</button>
-          <button className="no-btn">No, big head 😓</button>
+          <button className="yes-btn" onClick={handleClick}>
+            Yes, Olori oko mi 👑💝
+          </button>
+          <button className="no-btn" onClick={handleClick}>
+            Yes, you liee 😅
+          </button>
         </div>
+      </div>
+      <div className="sucess-container">
+        <h1 className="text-white font-bold text-2xl"> 🎉🎉🎉Success 🎉🎉🎉</h1>
+        <h2 className="mt-4 text-[#e2e2e2] font-bold">
+          Signed, Sealed and Delivered!
+        </h2>
+        <h3 className="text-[#e2e2e2] font-bold pt-2">My heart is yours 💕</h3>
       </div>
     </div>
   );

@@ -121,10 +121,10 @@ const sequel = () => {
       )}
       <div className="intro-content">
         <p className="intro">So I have a question ⌛</p>
-        {/* <p className="intro">Hmmmmmmmmmmmmmmmm 👀</p>
+        <p className="intro">Hmmmmmmmmmmmmmmmm 👀</p>
         <p className="intro">I'll buy you chocolate ohhh 🍫</p>
         <p className="intro">And amala with ogunfe 🧆🍗</p>
-        <p className="intro">And it goes...🕺💃🎶</p> */}
+        <p className="intro">And it goes...🕺💃🎶</p>
       </div>
       <div className="main-content">
         <h1 className="text-white text-[1.3rem] md:text-[1.9rem] font-bold text-center">

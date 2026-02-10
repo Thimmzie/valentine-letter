@@ -86,10 +86,10 @@ const homecomponent = () => {
         <h4 className="nuggets">Cus you make being divine look easy</h4>
       </div>
       <div className="-mt-8 flex flex-col items-center ">
-        <h1 className="text-[#f7f7f7] font-extrabold text-[1.7rem] text-center lovehead">
+        <h1 className="text-[#f7f7f7] font-extrabold text-[1.7rem] text-center md:text-[1.9rem] lovehead">
           Mine 💖💋 💞
         </h1>
-        <div className="px-10 text-[#f7f7f7] text-center lovetext mt-5 ">
+        <div className="px-10 text-[#f7f7f7] md:text-[1.2rem] text-center lovetext mt-5 ">
           <p className="lovetext">To my favorite person: your name is my</p>
           <p className="lovetext">heartbeat 💓, your love is my home 🏡.</p>
           <p className="lovetext">Your smile 💫✨ is the reward I want to</p>

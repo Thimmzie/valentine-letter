@@ -39,7 +39,7 @@ const intersection = () => {
         backgroundImage: `url(${Sitebg})`,
       }}
     >
-      <div className="px-10 text-[#f7f7f7] pt-15 text-center lovetext ">
+      <div className="px-10 text-[#f7f7f7] md:text-[1.2rem] pt-15 text-center lovetext ">
         <p className="lovetext">Your love gladdens my heart;</p>
         <p className="lovetext">it soothes me, and wraps me in comfort.</p>
         <p className="lovetext">

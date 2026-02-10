@@ -69,6 +69,28 @@ const sequel = () => {
     );
   }, []);
 
+  function useWindowSize() {
+    const [size, setSize] = useState({
+      width: window.innerWidth,
+      height: window.innerHeight,
+    });
+
+    useEffect(() => {
+      const onResize = () =>
+        setSize({
+          width: window.innerWidth,
+          height: window.innerHeight,
+        });
+
+      window.addEventListener('resize', onResize);
+      return () => window.removeEventListener('resize', onResize);
+    }, []);
+
+    return size;
+  }
+
+  const { width, height } = useWindowSize();
+
   return (
     <div
       className="overall-container-two"
@@ -79,6 +101,8 @@ const sequel = () => {
       {showSuccess && (
         <>
           <Confetti
+            width={width}
+            height={height}
             numberOfPieces={200}
             gravity={0.25}
             recycle={true}
@@ -86,6 +110,8 @@ const sequel = () => {
           />
 
           <Confetti
+            width={width}
+            height={height}
             numberOfPieces={200}
             gravity={-0.25}
             recycle={true}
@@ -95,30 +121,35 @@ const sequel = () => {
       )}
       <div className="intro-content">
         <p className="intro">So I have a question ⌛</p>
-        <p className="intro">Hmmmmmmmmmmmmmmmm 👀</p>
+        {/* <p className="intro">Hmmmmmmmmmmmmmmmm 👀</p>
         <p className="intro">I'll buy you chocolate ohhh 🍫</p>
         <p className="intro">And amala with ogunfe 🧆🍗</p>
-        <p className="intro">And it goes...🕺💃🎶</p>
+        <p className="intro">And it goes...🕺💃🎶</p> */}
       </div>
       <div className="main-content">
-        <h1 className="text-white text-[1.3rem] font-bold text-center">
+        <h1 className="text-white text-[1.3rem] md:text-[1.9rem] font-bold text-center">
           Will you be my valentine? 💖👩‍❤️‍👩💖{' '}
         </h1>
-        <div className="flex gap-4 mt-4 flex-col">
+        <div className="flex gap-4 mt-4 md:mt-10 flex-col md:flex-row md:gap-6">
           <button className="yes-btn" onClick={handleClick}>
             Yes, Olori oko mi 👑💝
           </button>
           <button className="no-btn" onClick={handleClick}>
-            Yes, you liee 😅
+            Yes, wetin you think? 😅
           </button>
         </div>
       </div>
       <div className="sucess-container">
-        <h1 className="text-white font-bold text-2xl"> 🎉🎉🎉Success 🎉🎉🎉</h1>
-        <h2 className="mt-4 text-[#e2e2e2] font-bold">
+        <h1 className="text-white font-bold text-2xl md:text-3xl">
+          {' '}
+          🎉🎉🎉Let's go there!🎉🎉🎉
+        </h1>
+        <h2 className="mt-4 text-[#e2e2e2] font-bold md:text-xl xl:text-[1rem]">
           Signed, Sealed and Delivered!
         </h2>
-        <h3 className="text-[#e2e2e2] font-bold pt-2">My heart is yours 💕</h3>
+        <h3 className="text-[#e2e2e2] font-bold pt-3 md:text-xl xl:text-[1rem]">
+          My heart is yours 💕
+        </h3>
       </div>
     </div>
   );
